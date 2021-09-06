@@ -1,0 +1,6 @@
+name: "BE Slack Notify Action"
+description: "Let everyone know of your shananigans"
+author: "Binaryedge.io"
+runs:
+  using: "docker"
+  image: "Dockerfile"
