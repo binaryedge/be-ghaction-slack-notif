@@ -4,3 +4,6 @@ author: "Binaryedge.io"
 runs:
   using: "docker"
   image: "Dockerfile"
+branding:
+  icon: "aperture"
+  color: "orange"
