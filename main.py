@@ -16,6 +16,7 @@ event_type = os.getenv("GITHUB_EVENT_NAME")
 event_path = os.getenv("GITHUB_EVENT_PATH")
 sha = os.getenv("GITHUB_SHA")
 actor = os.getenv("GITHUB_ACTOR")
+event_payload = json.load(open(event_path))
 
 message = {
     "text": f":rocket: Running *{workflow}* on *{repository}/{branch}* :rocket:",
@@ -55,7 +56,7 @@ message = {
                 },
                 {
                     "title": "Commit Message",
-                    "value": '```' + json.load(open(event_path))["commits"][-1]["message"] + '```',
+                    "value": '```' + event_payload["commits"][-1]["message"] + '```' if event_payload.get("commits") else '',
                     "short": False
                 }
             ],
